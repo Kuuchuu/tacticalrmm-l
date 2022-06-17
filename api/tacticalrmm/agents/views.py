@@ -531,12 +531,12 @@ def install_agent(request):
         # linux agents are in beta for now, only available for sponsors for testing
         # remove this after it's out of beta
 
-        code_token = CodeSignToken.objects.first()
-        if not code_token:
-            return notify_error("Missing code signing token")
+        #code_token = CodeSignToken.objects.first()
+        #if not code_token:
+        #    return notify_error("Missing code signing token")
 
-        if not code_token.is_valid:
-            return notify_error("Code signing token is not valid")
+        #if not code_token.is_valid:
+        #    return notify_error("Code signing token is not valid")
 
         from agents.utils import generate_linux_install
 
