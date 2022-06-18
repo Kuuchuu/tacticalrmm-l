@@ -155,13 +155,16 @@ sudo apt install -y software-properties-common
 sudo apt update
 sudo apt install -y certbot openssl
 
-print_green 'Getting wildcard cert'
+#print_green 'Getting wildcard cert'
 
-sudo certbot certonly --manual -d *.${rootdomain} --agree-tos --no-bootstrap --preferred-challenges dns -m ${letsemail} --no-eff-email
-while [[ $? -ne 0 ]]
-do
-sudo certbot certonly --manual -d *.${rootdomain} --agree-tos --no-bootstrap --preferred-challenges dns -m ${letsemail} --no-eff-email
-done
+#sudo certbot certonly --manual -d *.${rootdomain} --agree-tos --no-bootstrap --preferred-challenges dns -m ${letsemail} --no-eff-email
+#while [[ $? -ne 0 ]]
+#do
+#sudo certbot certonly --manual -d *.${rootdomain} --agree-tos --no-bootstrap --preferred-challenges dns -m ${letsemail} --no-eff-email
+#done
+
+print_green "Please ensure certs are installed in /etc/letsencrypt/live/${rootdomain}"
+echo "Sleeping 15" && sleep 15
 
 CERT_PRIV_KEY=/etc/letsencrypt/live/${rootdomain}/privkey.pem
 CERT_PUB_KEY=/etc/letsencrypt/live/${rootdomain}/fullchain.pem
